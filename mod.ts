@@ -99,4 +99,5 @@ slash.handle("suggest", async (d) => {
     });
 });
 
-slash.handle("*", (d) => d.reply("Unhandled command", { ephemeral: true }));
+slash.handle("*", (d) => d.reply("Unhandled command.", { ephemeral: true }));
+slash.client.on("interactionError", console.error);
