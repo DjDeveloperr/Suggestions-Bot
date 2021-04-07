@@ -61,7 +61,7 @@ slash.handle("suggest", async (d) => {
     })
   );
 
-  await d.defer(true);
+  await d.reply("Created suggestion!", { ephemeral: true });
 
   await slash.client.rest
     .post(WEBHOOK_URL + "?wait=true", {
@@ -95,7 +95,6 @@ slash.handle("suggest", async (d) => {
         msg.id,
         "👎"
       );
-      await d.editResponse({ content: "Created suggession!" });
     });
 });
 
