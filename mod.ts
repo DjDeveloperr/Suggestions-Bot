@@ -88,12 +88,12 @@ slash.handle("suggest", async (d) => {
       await slash.client.rest.endpoints.createReaction(
         msg.channel_id,
         msg.id,
-        encodeURIComponent("👍")
+        "👍"
       );
       await slash.client.rest.endpoints.createReaction(
         msg.channel_id,
         msg.id,
-        encodeURIComponent("👎")
+        "👎"
       );
       await d.editResponse({ content: "Created suggession!" });
     });
