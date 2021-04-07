@@ -1,7 +1,7 @@
 import * as slash from "https://raw.githubusercontent.com/DjDeveloperr/harmony/refactor/deploy.ts";
 
 slash.init({ env: true });
-const WEBHOOK = Deno.env.get("WEBHOOK")!;
+const WEBHOOK_URL = Deno.env.get("WEBHOOK")!;
 
 const commands: slash.SlashCommandPartial[] = [
   {
@@ -64,7 +64,7 @@ slash.handle("suggest", async (d) => {
   await d.defer(true);
 
   await slash.client.rest
-    .post(WEBHOOK + "?wait=true", {
+    .post(WEBHOOK_URL + "?wait=true", {
       username: d.user.username,
       avatar: d.user.avatarURL("png"),
       embeds: [
