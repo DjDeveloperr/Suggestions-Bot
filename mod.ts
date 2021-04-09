@@ -66,7 +66,7 @@ slash.handle("suggest", async (d) => {
   await slash.client.rest
     .post(WEBHOOK_URL + "?wait=true", {
       username: d.user.username,
-      avatar: d.user.avatarURL("png"),
+      avatar_url: d.user.avatarURL("png"),
       embeds: [
         {
           title: "Suggestion",
