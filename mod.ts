@@ -23,11 +23,14 @@ const commands: slash.SlashCommandPartial[] = [
   },
 ];
 
-slash.commands.all().then((list) => {
-  if (list.size !== commands.length) {
-    slash.commands.bulkEdit(commands);
-  }
-});
+slash.commands
+  .all()
+  .then((list) => {
+    if (list.size !== commands.length) {
+      slash.commands.bulkEdit(commands);
+    }
+  })
+  .catch(console.error);
 
 const WEBHOOK_URL = Deno.env.get("WEBHOOK")!;
 
