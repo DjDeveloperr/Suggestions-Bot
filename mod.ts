@@ -1,7 +1,6 @@
 import * as slash from "https://raw.githubusercontent.com/DjDeveloperr/harmony/refactor/deploy.ts";
 
 slash.init({ env: true });
-const WEBHOOK_URL = Deno.env.get("WEBHOOK")!;
 
 const commands: slash.SlashCommandPartial[] = [
   {
@@ -29,6 +28,8 @@ slash.commands.all().then((list) => {
     slash.commands.bulkEdit(commands);
   }
 });
+
+const WEBHOOK_URL = Deno.env.get("WEBHOOK")!;
 
 slash.handle("suggest", async (d) => {
   if (d.guild === undefined || d.user.id !== "422957901716652033") return;
